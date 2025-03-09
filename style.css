@@ -12,7 +12,7 @@ a {
 }
 
 #background {
-  background: url("assets/galaxybg.jpg") no-repeat center;
+  background: url("assets/sunsetbg.jpg") no-repeat center;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -34,212 +34,54 @@ a {
 
 .container {
   display: flex;
+  flex-direction: column;
   position: relative;
   max-width: 1260px;
-  height: calc(95% - 90px);
+  height: calc(100% - 2rem);
   padding: 0px 20px;
-  margin: 80px auto 30px;
+  margin: 2rem auto 0rem;
   text-align: center;
 }
 
 .left-container {
   display: inline-block;
-  width: 25%;
-  height: 100%;
-  background: rgba(100, 100, 100, 0.4);
+  width: 100%;
   border-radius: 10px;
 }
 
 .right-container {
   display: inline-block;
-  min-width: 65%;
+  min-width: 956px;
   max-width: 956px;
-  height: 100%;
-  margin-left: 20px;
+  height: calc(100%  - 153px);
+  margin: 0rem auto;
+}
+
+#clock {
+  padding: 1rem;
 }
 
 #clock h1 {
-  top: 0px;
-  left: 0px;
-  display: inline-block;
-  position: relative;
-  font-size: 60px;
+  font-size: 4.2rem;
   color: white;
-  margin: 44px auto 0px;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  margin: 0rem;
 }
 
 #clock h2 {
-  font-family: "Noto Sans KR", sans-serif;
-  letter-spacing: -0.5px;
-  font-size: 14px;
-  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.4px;
+  font-size: 1rem;
+  font-weight: 400;
   color: white;
-  margin: 0px auto;
-}
-
-#weather-container {
-  display: inline-flex;
-  position: absolute;
-  padding-left: 10px;
-  top: 0px;
-  left: 0px;
-  z-index: 0;
-}
-
-#weather-icon {
-  width: 70px;
-  margin: 5px auto;
-}
-
-#temp {
-  font-size: 26px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  margin: 16px auto;
-}
-
-#celsius {
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 500;
-  margin: 16px auto;
-}
-
-#location {
-  padding-left: 10px;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 500;
-  margin: 20px auto;
-}
-
-#search-container {
-  position: relative;
-  max-width: 90%;
-  text-align: center;
-  margin: 0px auto;
-}
-
-.search {
-  display: inline-flex;
-  width: 100%;
-  text-align: center;
-}
-
-/* 검색엔진 선택 */
-.search-engine {
-  display: inline-flex;
-  flex-direction: column;
-  font-size: 16px;
-  box-sizing: border-box;
-  outline: none;
-  cursor: pointer;
-}
-
-.search-engine .options-container {
-  display: none;
-  position: absolute;
-  width: 104px;
-  opacity: 0;
-  background: rgba(100, 100, 100, 0.705);
-  border-radius: 3px;
-  transition: all 0.4s;
-  overflow: hidden;
-  cursor: pointer;
-  order: 2;
-  z-index: 100;
-}
-
-.selected-engine {
-  position: relative;
-  width: 104px;
-  height: 50px;
-  box-sizing: border-box;
-  padding: 8px 5px 5px;
-  color: lightyellow;
-  background: rgba(100, 100, 100, 0.4);
-  border-radius: 5px;
-  margin: 0px 10px 0px 0px;
-  order: 1;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  line-height: 40px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.search-engine .options-container.active {
-  display: inline-block;
-  position: absolute;
-  top: 55px;
-  opacity: 1;
-  overflow: hidden;
-}
-
-.search-engine .option {
-  width: 104px;
-  line-height: 30px;
-  padding: 5px;
-  cursor: pointer;
-  color: lightgray;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  box-sizing: border-box;
-  vertical-align: middle;
-}
-
-.search-engine label {
-  cursor: pointer;
-}
-
-.search-engine img {
-  width: 80%;
-}
-
-.search-engine .option .radio {
-  display: none;
-}
-
-/* 실제 검색창 */
-.search-input {
-  display: inline-flex;
-  width: calc(100% - 114px);
-  height: 50px;
-  padding: 16px 16px;
-  margin: 0px;
-  background: rgba(100, 100, 100, 0.3);
-  border-radius: 5px;
-  border: 0px solid lightgray;
-  color: lightgray;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  box-sizing: border-box;
-  outline: none;
-}
-
-.search-btn {
-  color: lightgray;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  right: 10px;
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
+  margin: 0.5rem 0rem;
 }
 
 /* 북마크 저장 */
 .bookmark-container {
   width: 100%;
-  height: calc(100% - 60px);
-  margin: 10px 0px;
+  height: calc(100% - 40px);
   text-align: center;
 }
 
@@ -326,12 +168,6 @@ a {
   margin: 20px auto 10px;
 }
 
-.modal-search {
-  width: 100%;
-  height: 360px;
-  margin: 40px auto 4px;
-}
-
 .modal-help {
   width: 100%;
   height: 360px;
@@ -340,16 +176,6 @@ a {
   text-align: left;
   box-sizing: border-box;
   line-height: 24px;
-}
-
-.search-option {
-  display: block;
-  width: 200px;
-  line-height: 40px;
-  cursor: pointer;
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px auto;
 }
 
 .btn-save {
@@ -529,9 +355,9 @@ a {
 }
 
 .favicon-bg {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 20%;
   background: rgba(100, 100, 100, 0.5);
   text-align: center;
   margin: 0px auto 4px;

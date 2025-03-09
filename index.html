@@ -11,49 +11,17 @@
 </head>
 <body>
     <div id="background"></div>
-    <div id="weather-container">
-        <img src="" alt="" id="weather-icon">
-        <p id="temp"></p>
-        <p id="celsius">℃ </p>
-        <p id="location"></p>
-    </div>
     <button class="setting-btn">
         <img class="icon setting-icon" src="assets/setting_icon.png" alt="">
     </button>
     <div class="container">
         <div class="left-container">
             <div id="clock">
+                <h2>3월 10일 월요일</h2>
                 <h1>00:00</h1>
-                <h2>2021년 2월 11일 목요일</h2>
             </div>
         </div>
         <div class="right-container">
-            <div id="search-container">
-                <form action="" class="search">
-                    <div class="search-engine" data-role="selectBox">
-                        <div class="selected-engine"><img src="assets/google_logo.png" alt="" style="padding-top: 5px;" id='google'></div>
-                        <div class="options-container">
-                            <div class="option">
-                                <input type="radio" class="radio" id='google' value="google">
-                                <label for='google' id='google'><img src="assets/google_logo.png" alt="" style="padding-top: 5px;" id='google'></label>
-                            </div>
-                            <div class="option">
-                                <input type="radio" class="radio" id='youtube' value="youtube">
-                                <label for='youtube' id='youtube'><img src="assets/yt_logo_rgb_dark.png" alt="" id='youtube'></label>
-                            </div>
-                            <div class="option">
-                                <input type="radio" class="radio" id='naver' value="naver">
-                                <label for='naver' id='naver'><img src="assets/naver_green.png" alt="" id='naver'></label>
-                            </div>
-                        </div>
-                        <input type="hidden" name="searchEngine" id="searchEngine">
-                    </div>
-                    <button class="search-btn" type="submit" name="click">
-                        <img class="icon search-icon" src="assets/search_icon_gray.png" alt="">
-                    </button>
-                    <input class="search-input" type="text" class="keyword" name="search" maxlength=255 autocomplete="off" placeholder="검색어를 입력하세요" autofocus>
-                </form>
-            </div>
             <div class="bookmark-container">
                 <div class="modal hidden">
                     <div class="modal__overlay"></div>
@@ -62,7 +30,6 @@
                         <div class="modal__nav">
                             <p id="nav__bookmark" class="nav__item">북마크설정</p>
                             <p id="nav__background" class="nav__item">배경화면설정</p>
-                            <p id="nav__search" class="nav__item">검색설정</p>
                             <p id="nav__help" class="nav__item">도움말</p>
                         </div>
                         <div class="modal-bookmark">
@@ -74,23 +41,6 @@
                                 <input id="unsplashSearch" type="text" placeholder="검색어를 입력하세요">
                             </div>
                             <div id="unsplashResult"></div>
-                        </div>
-                        <div class="modal-search hidden">
-                            <div>검색창에서 기본적으로 검색을 원하는 검색엔진을 선택하세요(default: 구글)</div>
-                            <div>아래 3개의 검색엔진 외에도 원하는 엔진이 있다면 개발자에게 문의하세요😎</div>
-                            <div class="search-option">
-                                <input type="radio" name="engine" class="radio" id='google' value="google">
-                                <span class="search-engine-label">구글 Google</span>
-                            </div>
-                            <div class="search-option">
-                                <input type="radio" name="engine" class="radio" id='youtube' value="youtube">
-                                <span class="search-engine-label">유튜브 Youtube</span>
-                            </div>
-                            <div class="search-option">
-                                <input type="radio" name="engine" class="radio" id='naver' value="naver">
-                                <span class="search-engine-label">네이버 Naver</span>
-                            </div>
-                            <input id="search-btn-save" class="btn-save" type="button" value="저장하기">
                         </div>
                         <div class="modal-help hidden">
                             <div style="text-align: center;">❌아주 단순한 익스텐션을 위한 복잡하고 불친절한 설명서❌</div>
@@ -106,8 +56,6 @@
         </div>
     </div>
     <script src="clock.js"></script>
-    <script src="weather.js"></script>
-    <script src="searchengine.js"></script>
     <script src="bookmarks.js"></script>
     <script src="unsplash.js"></script>
 </body>

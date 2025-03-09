@@ -1,14 +1,22 @@
 {
     "name": "BlackOn NewTab",
-    "version": "1.1",
+    "version": "1.2",
     "description": "A New Tab extensions with a customized bookmarks and searching.",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
     "permissions": [
-        "geolocation",
-        "bookmarks",
-        "<all_urls>"
+        "bookmarks", "storage", "favicon"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+        "resources": ["_favicon/*"],
+        "matches": ["<all_urls>"],
+        "extension_ids": ["*"]
+        }
     ]
   }
