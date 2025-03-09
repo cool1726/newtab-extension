@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new tab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="background"></div>
+    <div id="weather-container">
+        <img src="" alt="" id="weather-icon">
+        <p id="temp"></p>
+        <p id="celsius">℃ </p>
+        <p id="location"></p>
+    </div>
+    <button class="setting-btn">
+        <img class="icon setting-icon" src="assets/setting_icon.png" alt="">
+    </button>
+    <div class="container">
+        <div class="left-container">
+            <div id="clock">
+                <h1>00:00</h1>
+                <h2>2021년 2월 11일 목요일</h2>
+            </div>
+        </div>
+        <div class="right-container">
+            <div id="search-container">
+                <form action="" class="search">
+                    <div class="search-engine" data-role="selectBox">
+                        <div class="selected-engine"><img src="assets/google_logo.png" alt="" style="padding-top: 5px;" id='google'></div>
+                        <div class="options-container">
+                            <div class="option">
+                                <input type="radio" class="radio" id='google' value="google">
+                                <label for='google' id='google'><img src="assets/google_logo.png" alt="" style="padding-top: 5px;" id='google'></label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" id='youtube' value="youtube">
+                                <label for='youtube' id='youtube'><img src="assets/yt_logo_rgb_dark.png" alt="" id='youtube'></label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" id='naver' value="naver">
+                                <label for='naver' id='naver'><img src="assets/naver_green.png" alt="" id='naver'></label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="searchEngine" id="searchEngine">
+                    </div>
+                    <button class="search-btn" type="submit" name="click">
+                        <img class="icon search-icon" src="assets/search_icon_gray.png" alt="">
+                    </button>
+                    <input class="search-input" type="text" class="keyword" name="search" maxlength=255 autocomplete="off" placeholder="검색어를 입력하세요" autofocus>
+                </form>
+            </div>
+            <div class="bookmark-container">
+                <div class="modal hidden">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__content">
+                        <img src="assets/close_icon.png" alt="" class="icon btn-close">
+                        <div class="modal__nav">
+                            <p id="nav__bookmark" class="nav__item">북마크설정</p>
+                            <p id="nav__background" class="nav__item">배경화면설정</p>
+                            <p id="nav__search" class="nav__item">검색설정</p>
+                            <p id="nav__help" class="nav__item">도움말</p>
+                        </div>
+                        <div class="modal-bookmark">
+                            <div class="select-bookmarks"></div>
+                            <input id="bookmark-btn-save" class="btn-save" type="button" value="저장하기">
+                        </div>
+                        <div class="modal-background hidden">
+                            <div class="unsplash-search">
+                                <input id="unsplashSearch" type="text" placeholder="검색어를 입력하세요">
+                            </div>
+                            <div id="unsplashResult"></div>
+                        </div>
+                        <div class="modal-search hidden">
+                            <div>검색창에서 기본적으로 검색을 원하는 검색엔진을 선택하세요(default: 구글)</div>
+                            <div>아래 3개의 검색엔진 외에도 원하는 엔진이 있다면 개발자에게 문의하세요😎</div>
+                            <div class="search-option">
+                                <input type="radio" name="engine" class="radio" id='google' value="google">
+                                <span class="search-engine-label">구글 Google</span>
+                            </div>
+                            <div class="search-option">
+                                <input type="radio" name="engine" class="radio" id='youtube' value="youtube">
+                                <span class="search-engine-label">유튜브 Youtube</span>
+                            </div>
+                            <div class="search-option">
+                                <input type="radio" name="engine" class="radio" id='naver' value="naver">
+                                <span class="search-engine-label">네이버 Naver</span>
+                            </div>
+                            <input id="search-btn-save" class="btn-save" type="button" value="저장하기">
+                        </div>
+                        <div class="modal-help hidden">
+                            <div style="text-align: center;">❌아주 단순한 익스텐션을 위한 복잡하고 불친절한 설명서❌</div>
+                            <li>북마크 설정에서 원하는 북마크 클릭하고 [저장하기] 버튼 클릭하면 자동 저장됩니다. 수정내역이 반영되지 않는다면 새로고침 한 번 해주세요.</li>
+                            <li>배경화면 설정에서는 배경화면 이미지로 원하는 단어를 '영어로' 입력하고 [ENTER] 치면 검색결과가 나옵니다. 원하는 이미지를 클릭하기만 하면 이미지가 자동으로 저장됩니다! 수정내역이 반영되지 않는다면 새로고침 한 번 해주세요.</li>
+                            <li>크롬 브라우저가 초기화되거나 캐시가 삭제되면 설정한 북마크가 초기화될 수 있습니다. 설정에서 살짝쿵 수정해주세요🙏</li>
+                            <li>오류, 건의사항, 코드수정은 cool1726@naver.com으로 보내주세요😊🔥</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="bookmarks"></div>
+            </div>
+        </div>
+    </div>
+    <script src="clock.js"></script>
+    <script src="weather.js"></script>
+    <script src="searchengine.js"></script>
+    <script src="bookmarks.js"></script>
+    <script src="unsplash.js"></script>
+</body>
+</html>

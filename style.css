@@ -1,0 +1,560 @@
+﻿body,
+html {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+#background {
+  background: url("assets/galaxybg.jpg") no-repeat center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#background::before {
+  content: "";
+  opacity: 0.3;
+  background-color: black;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  max-width: 1260px;
+  height: calc(95% - 90px);
+  padding: 0px 20px;
+  margin: 80px auto 30px;
+  text-align: center;
+}
+
+.left-container {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 10px;
+}
+
+.right-container {
+  display: inline-block;
+  min-width: 65%;
+  max-width: 956px;
+  height: 100%;
+  margin-left: 20px;
+}
+
+#clock h1 {
+  top: 0px;
+  left: 0px;
+  display: inline-block;
+  position: relative;
+  font-size: 60px;
+  color: white;
+  margin: 44px auto 0px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+#clock h2 {
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.5px;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  margin: 0px auto;
+}
+
+#weather-container {
+  display: inline-flex;
+  position: absolute;
+  padding-left: 10px;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+#weather-icon {
+  width: 70px;
+  margin: 5px auto;
+}
+
+#temp {
+  font-size: 26px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  margin: 16px auto;
+}
+
+#celsius {
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+  margin: 16px auto;
+}
+
+#location {
+  padding-left: 10px;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+  margin: 20px auto;
+}
+
+#search-container {
+  position: relative;
+  max-width: 90%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.search {
+  display: inline-flex;
+  width: 100%;
+  text-align: center;
+}
+
+/* 검색엔진 선택 */
+.search-engine {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-engine .options-container {
+  display: none;
+  position: absolute;
+  width: 104px;
+  opacity: 0;
+  background: rgba(100, 100, 100, 0.705);
+  border-radius: 3px;
+  transition: all 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+  order: 2;
+  z-index: 100;
+}
+
+.selected-engine {
+  position: relative;
+  width: 104px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 8px 5px 5px;
+  color: lightyellow;
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 5px;
+  margin: 0px 10px 0px 0px;
+  order: 1;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  line-height: 40px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.search-engine .options-container.active {
+  display: inline-block;
+  position: absolute;
+  top: 55px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.search-engine .option {
+  width: 104px;
+  line-height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  color: lightgray;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.search-engine label {
+  cursor: pointer;
+}
+
+.search-engine img {
+  width: 80%;
+}
+
+.search-engine .option .radio {
+  display: none;
+}
+
+/* 실제 검색창 */
+.search-input {
+  display: inline-flex;
+  width: calc(100% - 114px);
+  height: 50px;
+  padding: 16px 16px;
+  margin: 0px;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 5px;
+  border: 0px solid lightgray;
+  color: lightgray;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.search-btn {
+  color: lightgray;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 북마크 저장 */
+.bookmark-container {
+  width: 100%;
+  height: calc(100% - 60px);
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.setting-btn {
+  color: gray;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.not-scroll {
+  overflow: hidden;
+}
+
+/* 스크롤바 스타일 */
+.container * ::-webkit-scrollbar {
+  width: 6px;
+  display: none;
+}
+
+.container * ::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 4px;
+}
+
+/* 모달 설정 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  color: black;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+}
+
+.modal__overlay {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal__content {
+  background: white;
+  padding: 20px 20px;
+  position: absolute;
+  width: 700px;
+  height: 480px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal__nav {
+  text-align: left;
+  padding: 0 15px;
+}
+
+.nav__item {
+  display: inline;
+  margin-right: 20px;
+  cursor: pointer;
+  color: darkslategrey;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+}
+
+.modal-background {
+  width: 100%;
+  height: 360px;
+  margin: 20px auto 10px;
+}
+
+.modal-search {
+  width: 100%;
+  height: 360px;
+  margin: 40px auto 4px;
+}
+
+.modal-help {
+  width: 100%;
+  height: 360px;
+  margin: 40px auto 4px;
+  padding: 0 50px;
+  text-align: left;
+  box-sizing: border-box;
+  line-height: 24px;
+}
+
+.search-option {
+  display: block;
+  width: 200px;
+  line-height: 40px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px auto;
+}
+
+.btn-save {
+  margin: 5px;
+  padding: 6px 12px;
+  line-height: 14px;
+  background-color: white;
+  border: 1px solid darkslategrey;
+  border-radius: 4px;
+  color: darkslategrey;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.modal-bookmark {
+  width: 100%;
+  height: 360px;
+  margin: 20px auto 5px;
+}
+
+.select-bookmarks {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  width: 600px;
+  height: 360px;
+  margin: 0px auto;
+  box-sizing: border-box;
+  text-align: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.bookmark-item {
+  width: 200px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.bookmark-label {
+  color: black;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.btn-close {
+  all: unset;
+  cursor: pointer;
+  padding: 5px;
+  float: right;
+  color: gray;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 배경화면 설정 */
+#unsplashSearch {
+  width: 300px;
+  height: 34px;
+  padding: 16px 16px;
+  margin: 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  color: gray;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+#unsplashResult {
+  width: 100%;
+  height: 350px;
+  overflow-y: scroll;
+  margin: 15px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  transition: all 0.4s;
+}
+
+.list_item {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  margin: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.list_img {
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* 홈화면 북마크 */
+.bookmarks {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  column-gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.bookmarks .default-message {
+  margin: auto;
+  color: lightyellow;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+}
+
+.directory {
+  width: 260px;
+  height: 280px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.directory-box {
+  width: 240px;
+  height: 240px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 15%;
+  margin: 0px auto 5px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.directory-title {
+  color: lightyellow;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  width: 240px;
+  padding: 0px 10px;
+}
+
+.directory-item {
+  width: 80px;
+  height: 75px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 3px;
+  box-sizing: border-box;
+  margin: 2px auto;
+}
+
+.favicon-bg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(100, 100, 100, 0.5);
+  text-align: center;
+  margin: 0px auto 4px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.favicon {
+  position: relative;
+  top: 25%;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.url-description {
+  text-decoration: none;
+  width: 50px;
+  height: 14px;
+  line-height: 14px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  color: lightsteelblue;
+  font-size: 12px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
