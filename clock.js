@@ -18,9 +18,9 @@ function getDate() {
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
     const date = today.getDate();
-    const day = today.getUTCDay();
+    const day = today.getDay();
     const days = [ '일', '월', '화', '수', '목', '금', '토' ];
-    dateTitle.innerText = `${year}년 ${month}월 ${date}일 ${days[day]}요일`
+    dateTitle.innerText = `${month}월 ${date}일 ${days[day]}요일`
 }
 
 function init() {
